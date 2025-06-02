@@ -1,0 +1,27 @@
+{
+  "name": "conta_bancaria",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giovannabreinack/conta_bancaria.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giovannabreinack/conta_bancaria/issues"
+  },
+  "homepage": "https://github.com/giovannabreinack/conta_bancaria#readme",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.15.29",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/readline-sync": "^1.4.8"
+  }
+}
