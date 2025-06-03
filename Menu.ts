@@ -15,7 +15,7 @@ export function main() {
 
     while(true) {
 
-        console.log(colors.bg.black, colors.fg.magentastrong,"*****************************************************");
+        console.log(colors.bg.black + colors.fg.magentastrong + "*****************************************************");
         console.log("                                                     ");
         console.log("                BANCO DO BRAZIL COM Z                ");
         console.log("                                                     ");
