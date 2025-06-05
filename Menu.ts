@@ -8,8 +8,9 @@ import { ContaController } from "./src/controller/ContaController";
 export function main() {
 
     let contas: ContaController = new ContaController();
-
-    let opcao : number;
+    let opcao, numero, agencia, tipo, saldo, limite, aniversario : number;
+    let titular: string;
+    const tiposContas = ['Conta Corrente', 'Conta Poupança'];
 
     while(true) {
 
