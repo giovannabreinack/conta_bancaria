@@ -3,26 +3,13 @@ import { colors } from './src/util/Colors';
 import { Conta } from "./src/model/Conta";
 import { ContaCorrente } from './src/model/ContaCorrente';
 import { ContaPoupanca } from './src/model/ContaPoupanca';
+import { ContaController } from "./src/controller/ContaController";
 
 export function main() {
 
+    let contas: ContaController = new ContaController();
+
     let opcao : number;
-
-   // Objeto da Classe ContaCorrente (Teste)
-    const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Mariana", 15000, 1000);
-    contacorrente.visualizar();
-    contacorrente.sacar(2000);
-    contacorrente.visualizar();
-    contacorrente.depositar(1000);
-    contacorrente.visualizar();
-
-    // Objeto da Classe ContaPoupanca (teste)
-    const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 123, 2, "Victor", 1000, 10);
-    contapoupanca.visualizar();
-    contapoupanca.sacar(200);
-    contapoupanca.visualizar();
-    contapoupanca.depositar(1000);
-    contapoupanca.visualizar();
 
     while(true) {
 
@@ -63,6 +50,7 @@ export function main() {
                 break;
             case 2:
                 console.log(colors.bg.magentabright,"\n\nListar todas as Contas\n\n", colors.reset);
+                contas.listarTodas();
                 keyPress()
                 break;
             case 3:
