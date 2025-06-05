@@ -47,6 +47,26 @@ export function main() {
         switch(opcao) {
             case 1:
                 console.log(colors.bg.magentabright, "\n\nCriar Conta\n\n", colors.reset);
+                console.log("Digite o Número da Agência: ");
+                agencia = readlinesync.questionInt("");
+                console.log("Digite o Nome do Titular da Conta: ");
+                titular = readlinesync.question("");
+                console.log("\nDigite o Tipo da Conta: ");
+                tipo = readlinesync.keyInSelect(tiposContas, "", {cancel: false}) + 1;
+                console.log("\nDigite o Saldo da Conta (R$): ");
+                saldo = readlinesync.questionFloat("");
+                switch(tipo){
+                    case 1:
+                        console.log("Digite o Limite da Conta (R$): ");
+                        limite = readlinesync.questionFloat("");
+                        contas.cadastrar(new ContaCorrente(contas.gerarNumero(), agencia, tipo, titular, saldo, limite));
+                        break;
+                    case 2:
+                        console.log("Digite o Dia do Aniversário da Conta Poupança: ");
+                        aniversario = readlinesync.questionInt("");
+                        contas.cadastrar(new ContaPoupanca(contas.gerarNumero(), agencia, tipo, titular, saldo, aniversario));
+                        break;
+                }
                 keyPress()
                 break;
             case 2:
