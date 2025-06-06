@@ -9,13 +9,13 @@ import { read } from "fs";
 export function main() {
 
     let contas: ContaController = new ContaController();
-    let opcao, numero, agencia, tipo, saldo, limite, aniversario : number;
+    let opcao, numero, agencia, tipo, saldo, limite, aniversario, valor, numeroDestino : number;
     let titular: string;
     const tiposContas = ['Conta Corrente', 'Conta Poupança'];
 
     while(true) {
 
-        console.log(colors.bg.black + colors.fg.magentastrong + "*****************************************************");
+        console.log(colors.bg.whitebright + colors.fg.magentastrong + "*****************************************************");
         console.log("                                                     ");
         console.log("                BANCO DO BRAZIL COM Z                ");
         console.log("                                                     ");
@@ -32,14 +32,14 @@ export function main() {
         console.log("            9 - Sair                                 ");
         console.log("                                                     ");
         console.log("*****************************************************");
-        console.log("                                                     ",
+        console.log("                                                     " +
             colors.reset);
 
         console.log("Entre com a opção desejada: ");
         opcao = readlinesync.questionInt("");
 
         if(opcao == 9){
-            console.log(colors.bg.greenbright, "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+            console.log(colors.fg.magenta + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
             sobre();
             console.log(colors.reset, "");
             process.exit(0);
@@ -47,7 +47,7 @@ export function main() {
 
         switch(opcao) {
             case 1:
-                console.log(colors.bg.magentabright, "\n\nCriar Conta\n\n", colors.reset);
+                console.log(colors.fg.magenta, "\n\nCriar Conta\n\n", colors.reset);
                 console.log("Digite o Número da Agência: ");
                 agencia = readlinesync.questionInt("");
                 console.log("Digite o Nome do Titular da Conta: ");
@@ -71,19 +71,19 @@ export function main() {
                 keyPress()
                 break;
             case 2:
-                console.log(colors.bg.magentabright,"\n\nListar todas as Contas\n\n", colors.reset);
+                console.log(colors.fg.magenta,"\n\nListar todas as Contas\n\n", colors.reset);
                 contas.listarTodas();
                 keyPress()
                 break;
             case 3:
-                console.log(colors.bg.magentabright,"\n\nConsultar dados da Conta - por número\n\n", colors.reset);
+                console.log(colors.fg.magenta,"\n\nConsultar dados da Conta - por número\n\n", colors.reset);
                 console.log("Digite o Número da Conta: ");
                 numero = readlinesync.questionInt("");
                 contas.procurarPorNumero(numero);
                 keyPress()
                 break;
             case 4:
-                console.log(colors.bg.magentabright,"\n\nAtualizar dados da Conta\n\n", colors.reset);
+                console.log(colors.fg.magenta,"\n\nAtualizar dados da Conta\n\n", colors.reset);
                 console.log("Digite o Número da Conta: ");
                 numero = readlinesync.questionInt("");
                 let conta = contas.buscarNoArray(numero);
@@ -113,26 +113,31 @@ export function main() {
                 keyPress()
                 break;
             case 5:
-                console.log(colors.bg.magentabright,"\n\nApagar uma Conta\n\n", colors.reset);
+                console.log(colors.fg.magenta,"\n\nApagar uma Conta\n\n", colors.reset);
                 console.log("Digite o Número da Conta: ");
                 numero = readlinesync.questionInt("");
                 contas.deletar(numero);
                 keyPress()
                 break;
             case 6:
-                console.log(colors.bg.magentabright,"\n\nSaque\n\n", colors.reset);
+                console.log(colors.fg.magenta,"\n\nSaque\n\n", colors.reset);
+                console.log("Digite o número da Conta: ");
+                numero = readlinesync.questionInt("");
+                console.log("\nDigite o valor do Saque (R$): ");
+                valor = readlinesync.questionFloat("");
+                contas.sacar(numero, valor);
                 keyPress()
                 break;
             case 7:
-                console.log(colors.bg.magentabright,"\n\nDepósito\n\n", colors.reset);
+                console.log(colors.fg.magenta,"\n\nDepósito\n\n", colors.reset);
                 keyPress()
                 break;
             case 8:
-                console.log(colors.bg.magentabright,"\n\nTransferência entre Contas\n\n", colors.reset);
+                console.log(colors.fg.magenta,"\n\nTransferência entre Contas\n\n", colors.reset);
                 keyPress()
                 break;
             default:
-                console.log(colors.bg.magentabright,"\nOpção Inválida!\n", colors.reset);
+                console.log(colors.fg.magenta,"\nOpção Inválida!\n", colors.reset);
                 keyPress()
                 break;
         }
