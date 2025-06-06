@@ -139,6 +139,13 @@ export function main() {
                 break;
             case 8:
                 console.log(colors.fg.magenta,"\n\nTransferência entre Contas\n\n", colors.reset);
+                console.log("Digite o número da Conta de Origem: ");
+                numero = readlinesync.questionInt("");
+                console.log("Digite o número da Conta de Destino: ");
+                numeroDestino = readlinesync.questionInt("");
+                console.log("\nDigite o valor do Depósito (R$): ");
+                valor = readlinesync.questionFloat("");
+                contas.transferir(numero, numeroDestino, valor);
                 keyPress()
                 break;
             default:
