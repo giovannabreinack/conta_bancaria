@@ -114,6 +114,9 @@ export function main() {
                 break;
             case 5:
                 console.log(colors.bg.magentabright,"\n\nApagar uma Conta\n\n", colors.reset);
+                console.log("Digite o Número da Conta: ");
+                numero = readlinesync.questionInt("");
+                contas.deletar(numero);
                 keyPress()
                 break;
             case 6:
