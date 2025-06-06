@@ -130,6 +130,11 @@ export function main() {
                 break;
             case 7:
                 console.log(colors.fg.magenta,"\n\nDepósito\n\n", colors.reset);
+                console.log("Digite o número da Conta: ");
+                numero = readlinesync.questionInt("");
+                console.log("\nDigite o valor do Depósito (R$): ");
+                valor = readlinesync.questionFloat("");
+                contas.depositar(numero, valor);
                 keyPress()
                 break;
             case 8:
